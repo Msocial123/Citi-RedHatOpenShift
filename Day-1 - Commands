@@ -8,3 +8,5 @@ Day-1 Commads:
    7 docker tag citi-web-image muralisocial123/citi-web-image
    8 docker push muralisocial123/citi-web-image
    9 docker pull muralisocial123/citi-web-image:latest
+   10. https://console.redhat.com/ - RedHat Openshift Account 
+   11.https://quay.io/
