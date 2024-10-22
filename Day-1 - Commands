@@ -10,3 +10,8 @@ Day-1 Commads:
    9 docker pull muralisocial123/citi-web-image:latest
    10. https://console.redhat.com/ - RedHat Openshift Account 
    11.https://quay.io/
+
+
+Day-2 Commands:
+
+docker pull muralisocial123/transcation-image:latest
