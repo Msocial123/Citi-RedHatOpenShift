@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trans-deployment 
+spec:
+  selector:
+    matchLabels:
+      app: trans
+  template:
+    metadata:
+      labels:
+        app: trans
+    spec:
+      containers:
+      - name: trannsaction-cont
+        image: docker.io/muralisocial123/transcation-image:latest
+        resources:
+          requsts:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
