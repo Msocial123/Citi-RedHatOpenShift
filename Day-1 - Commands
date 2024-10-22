@@ -15,3 +15,7 @@ Day-1 Commads:
 Day-2 Commands:
 
 docker pull muralisocial123/transcation-image:latest
+
+docker pull muralisocial123/python-flask-image:2.0
+
+docker pull muralisocial123/node-app-example:latest
