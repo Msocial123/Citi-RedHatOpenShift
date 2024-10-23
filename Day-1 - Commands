@@ -21,3 +21,5 @@ docker pull muralisocial123/python-flask-image:2.0
 docker pull muralisocial123/node-app-example:latest
 
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#deployment-v1-apps
+
+https://github.com/Msocial123/microservices-demo.git
