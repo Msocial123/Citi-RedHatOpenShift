@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: citi-ingress
+  labels:
+    name: myingress
+spec:
+  rules:
+   - http:
+      paths:
+      - pathType: Prefix
+        path: "/trans(/|$)(.*)"
+        backend:
+          service:
+            name: trans-svc
+            port: 
+              number: 3005
+      - pathType: Prefix
+        path: "/python(/|$)(.*)"
+        backend:
+          service:
+            name: app-deployment-svc
+            port: 
+              number: 5004        
