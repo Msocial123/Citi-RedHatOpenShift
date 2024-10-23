@@ -1,24 +1,34 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: citi-ingress
-  labels:
-    name: myingress
+  name: k8s-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
-   - http:
+  - http:
       paths:
-      - pathType: Prefix
-        path: "/trans(/|$)(.*)"
+      - path: /trans(/|$)(.*)
+        pathType: Prefix
         backend:
           service:
             name: trans-svc
-            port: 
+            port:
               number: 3005
-      - pathType: Prefix
-        path: "/python(/|$)(.*)"
+      - path: /python(/|$)(.*)
+        pathType: Prefix
         backend:
           service:
             name: app-deployment-svc
-            port: 
-              number: 5004        
+            port:
+              number: 5004
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: trans-svc
+            port:
+              number: 3005
