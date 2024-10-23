@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-web-deployment
+  name: python-web-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: node-app
+      app: python
   template:
     metadata:
       labels:
-        app: node-app
+        app: python
     spec:
       containers:
-      - name: node-container
-        image: docker.io/muralisocial123/node-app-example:latest
+      - name: python-container
+        image: muralisocial123/python-app:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 5000
 ---
 apiVersion: v1 
 kind: Service
@@ -24,9 +24,9 @@ metadata:
   name: app-deployment-svc
 spec:
   selector:
-    app: node-app
+    app: python
   ports:
-  - port: 3004
-    targetPort: 3000
-  type: LoadBalancer  
+  - port: 5004
+    targetPort: 5000
+  type: ClusterIP 
         
