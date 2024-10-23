@@ -1,0 +1,46 @@
+ apiVersion: k8s.nginx.org/v1alpha1
+ kind: NginxIngressController
+ metadata:
+   name: my-nginx-ingress-controller
+   namespace: my-nginx-ingress
+ spec:
+   type: deployment
+   nginxPlus: false
+   image:
+     repository: nginx/nginx-ingress
+     tag: edge
+     pullPolicy: Always
+   replicas: 3
+   serviceType: NodePort
+   enableCRDs: true
+   enableSnippets: false
+   enablePreviewPolicies: false
+   defaultSecret: my-nginx-ingress/default-secret
+   ingressClass: my-nginx-ingress
+   watchNamespace: default
+   healthStatus:
+     enable: true
+     uri: "/my-health"
+   nginxDebug: true
+   logLevel: 3
+   nginxStatus:
+     enable: true
+     port: 9090
+     allowCidrs: "127.0.0.1"
+   enableLeaderElection: true
+   wildcardTLS: my-nginx-ingress/wildcard-secret
+   reportIngressStatus:
+     enable: true
+     externalService: my-nginx-ingress
+   prometheus:
+     enable: true
+     port: 9114
+     secret: my-nginx-ingress/prometheus-secret
+   enableLatencyMetrics: false
+   configMapData:
+     error-log-level: debug
+   enableTLSPassthrough: true
+   globalConfiguration: my-nginx-ingress/nginx-configuration
+   nginxReloadTimeout: 5000
+   appProtect:
+     enable: false
