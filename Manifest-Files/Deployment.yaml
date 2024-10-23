@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: trannsaction-cont
-          image: docker.io/muralisocial123/transcation-
+          image: muralisocial123/transcation-image:latest
           ports:
             - containerPort: 3000
 ---
@@ -26,7 +26,7 @@ spec:
   selector:
     app: trans
   ports:
-  - port: 3003
+  - port: 3005
     targetPort: 3000
   type: ClusterIP  
         

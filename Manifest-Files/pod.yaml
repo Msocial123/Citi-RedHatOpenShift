@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: web-app-pod 
+spec:
+  containers:
+    - name: sample-web 
+      image: quay.io/jcsocial/example/citi-app:2.0 or docker.io/muralisocial123/citi-web-image:latest
+      ports:
+        - containerPort: 80

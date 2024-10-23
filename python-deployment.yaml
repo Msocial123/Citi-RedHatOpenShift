@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment 
+spec:
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+      - name: python-cont
+        image: docker.io/muralisocial123/python-flask-image:2.0
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: python-deployment-svc
+spec:
+  selector:
+    app: python
+  ports:
+  - port: 5001
+    targetPort: 5000
+  type: ClusterIP  
+        
