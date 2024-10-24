@@ -23,3 +23,5 @@ docker pull muralisocial123/node-app-example:latest
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/#deployment-v1-apps
 
 https://github.com/Msocial123/microservices-demo.git
+
+http://aa3b5158bf1c34c43a0e99a7420d9250-678980895.ap-southeast-1.elb.amazonaws.com/
